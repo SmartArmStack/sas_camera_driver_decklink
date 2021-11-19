@@ -1,0 +1,7 @@
+<launch>
+
+<rosparam file="$(find sas_camera_driver_decklink)/cfg/camera_0.yaml" command="load" ns="sas_camera_decklink_camera_0"/>
+<node pkg="sas_camera_driver_decklink" type="sas_camera_driver_decklink_node" name="sas_camera_decklink_camera_0"/>
+
+</launch>
+
