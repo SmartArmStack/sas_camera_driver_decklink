@@ -118,6 +118,7 @@ public:
                                                            "bgra8",
                                                            cv_image_rgba);
                         image_publisher_.publish(cv_bridge_image.toImageMsg());
+                        ros::spinOnce();
                     }
                     catch (cv_bridge::Exception& e)
                     {
@@ -156,7 +157,7 @@ public:
         if (result != S_OK)
             return;
 
-        while (not kill_this_thread_)
+        while (not *kill_this_thread_)
         {
             try
             {
@@ -187,8 +188,6 @@ public:
 
                         set_image();
 
-                        // We have to call release twice otherwise there is a memory leak.
-                        bgra32Frame->Release();
                         bgra32Frame->Release();
                     }
                 }
