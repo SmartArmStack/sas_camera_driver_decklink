@@ -25,9 +25,9 @@ Everything else is licensed according to this repository's license.
 
 ## Installation
 
-Download and install [Desktop Video](https://www.blackmagicdesign.com/developer/product/capture-and-playback) for Linux.
+1- Download and install [Desktop Video](https://www.blackmagicdesign.com/developer/product/capture-and-playback) for Linux.
 
-Add this repository to your catkin workspace and compile normally.
+2- Add this repository to your catkin workspace and compile normally.
 
 ## Running
 
