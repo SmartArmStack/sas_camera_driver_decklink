@@ -66,7 +66,6 @@ public:
     IDeckLinkVideoFrame* receivedVideoFrame;
     IDeckLinkVideoConversion* deckLinkFrameConverter;
     const int decklink_index_;
-    std::mutex image_mutex;
 
     IDeckLinkIterator* deckLinkIterator;
     IDeckLink* deckLink;
@@ -94,8 +93,6 @@ public:
     {
         try
         {
-            if (image_mutex.try_lock())
-            {
                 if (bgra32Frame != NULL)
                 {
                     if (image_index == 0)
@@ -132,8 +129,6 @@ public:
                 {
                     fprintf(stderr, "Image is NULL, ignoring...");
                 }
-                image_mutex.unlock();
-            }
         }
         catch (const std::exception& e)
         {
